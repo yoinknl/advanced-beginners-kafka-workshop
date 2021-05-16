@@ -1,0 +1,25 @@
+Command Cheat Sheet
+Below are listed some useful commands that can be executed from the terminal with prefix: 'docker-compose exec kafka'
+
+Kafka-topics
+kafka-topics --bootstrap-server localhost:9092 -list	List all topics.
+kafka-topics --describe --zookeeper localhost:2181 --topic [topic]	Describe topic. Info such as: number of partitions, replication, leaders and more.
+kafka-topics --zookeeper localhost:2181 --delete --topic [topic]	Delete topic.
+kafka-topics --alter --zookeeper localhost:2181 --topic [topic] --partitions [number of partitions]	Change number of partitions of the topic.
+kafka-topics --alter --zookeeper localhost:2181 --topic [topic] --config retention.ms=[retention time in millis]	Change retention time of the topic.
+
+Kafka-consumer-groups
+kafka-consumer-groups --bootstrap-server localhost:9092 --list	List all consumer groups.
+kafka-consumer-groups --bootstrap-server localhost:9092 --describe --group [consumer group]	Display information for the given consumer group, like the offset per partition.
+kafka-console-consumer --bootstrap-server localhost:9092 --topic [topic] --from-beginning	Display and tail messages coming on on the all partitions on the given topic since the beginning.
+kafka-console-consumer --bootstrap-server localhost:9092 --topic [topic] --partition [partition] --offset [offset]	Display and tail messages coming on on the given partition on the given topic since the given offset.
+kafka-console-consumer --bootstrap-server localhost:9092 --topic [topic] --property print.key=true --property key.separator="[key separator]" --from-beginning	Display and tail messages coming on the given topic also displaying the key of the message.
+kafka-console-consumer --bootstrap-server localhost:9092 --topic [topic] --property print.timestamp=true --from-beginning	Display and tail messages coming on the given topic also displaying the ingestion of the message. This is the timestamp of when the message is written on the log.
+
+Kafka-console-producer
+kafka-console-producer --broker-list localhost:9092 --topic [topic]	Produce record to the topic. Message key is empty
+kafka-console-producer --broker-list localhost:9092 --topic [topic] --property parse.key=true --property key.separator=[key separator]	Produce record to the topic. Message key is empty
+
+For documentation on Kafka CLI commands look at:
+https://datacadamia.com/dit/kafka/kafka-console-consumer
+https://datacadamia.com/dit/kafka/kafka-console-producer
