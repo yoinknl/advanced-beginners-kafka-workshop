@@ -1,4 +1,4 @@
-package nl.yoink.training.kafka.workshop.kafka.producer.config;
+package nl.yoink.training.kafka.workshop.kafka.streams.config;
 
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;
@@ -35,6 +35,15 @@ public class KafkaSetupConfig {
 	public NewTopic playerTopic(@Value("${kafka.topic.player}") String playerTopic) {
 		return TopicBuilder
 				.name(playerTopic)
+				.partitions(partitions)
+				.replicas(replicationFactor)
+				.build();
+	}
+
+	@Bean
+	public NewTopic scoreBoardTopic(@Value("${kafka.topic.score-board}") String scoreBoardTopic) {
+		return TopicBuilder
+				.name(scoreBoardTopic)
 				.partitions(partitions)
 				.replicas(replicationFactor)
 				.build();
