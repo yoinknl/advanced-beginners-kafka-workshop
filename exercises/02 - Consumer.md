@@ -1,6 +1,6 @@
 # Developing a Kafka Consumer
 
-In the kafka consumer module
+NOTE: Perform the following steps inside the kafka-consumer module.
 
 Inspiration for step 1 to 3: https://www.baeldung.com/spring-kafka
 
@@ -22,7 +22,7 @@ Inspiration for step 1 to 3: https://www.baeldung.com/spring-kafka
     Set the consumer factory of step 4 as the consumer factory of the containerFactory.
 
 5. Create a folder called "service" and in it a service class (PlayerConsumer) that has a method to consume a Player message using the @KafkaListener annotation. 
-See section 5.2 from the Bealdung link as an example. You can use SpEL to set the topic from the application.properties. Log the received message.
+See section 5.2 from the Baeldung link as an example. You can use SpEL to set the topic from the application.properties. Log the received message.
 6. Start the consumer and test if it consumes a message correctly.
 
 Optional if enough time for the Kafka streams part:

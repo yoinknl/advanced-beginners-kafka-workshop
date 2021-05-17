@@ -26,8 +26,8 @@ as an inspiration: https://www.baeldung.com/spring-kafka. The "KafkaSetupConfig"
     1. ProducerConfig.BOOTSTRAP_SERVERS_CONFIG to the bootstrap servers from the kafkaProperties
     2. ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG so it can handle a String as key
     3. ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG so it can handle a Player object as value
-6. Create a bean for a ProducerFactory that can send records with a String as the key and a Player as the value and has the properties from step 7.
-7. Create a bean for a KafkaTemplate that can send records with a String as the key and a Player as the value using the ProducerFactory from step 8.
+6. Create a bean for a ProducerFactory that can send records with a String as the key and a Player as the value and has the properties from step 5.
+7. Create a bean for a KafkaTemplate that can send records with a String as the key and a Player as the value using the ProducerFactory from step 6.
 
 8. Create a service folder and in it a service class called PlayerService. This class needs to have two fields:
     ```
@@ -36,5 +36,5 @@ as an inspiration: https://www.baeldung.com/spring-kafka. The "KafkaSetupConfig"
    ```
    Use constructor injection to fill these fields. Then create a method that accepts a Player object and uses the KafkaTemplate to send this to the player topic on Kafka. 
    Use the player id as the key. How to do this can be seen in section 4.2 of the link.
-9. Create a folder called "api" and in it an @RestController class (PlayerController) that receives a player object from an api call and uses the PlayerService to send this to Kafka. Note that the port of the application is 20000.
+9. Create a folder called "api" and in it an @RestController class (PlayerController) that receives a player object from an HTTP POST call and uses the PlayerService to send this to Kafka. Note that the port of the application is 20000.
 10. Use the Kafka CLI commands in the cheat sheet of the exercises folder to check if the messsage arrived correctly on the topic. You can do this using the kafka-console-consumer command.
