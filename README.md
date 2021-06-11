@@ -2,6 +2,12 @@ This repository contains the "Advanced beginners kafka workshop", an introductor
 The goal of the workshop is to familiarize developers with the core concepts of Kafka and provide them with their first hands on experience 
 in setting up a local single broker cluster, creating a producer, a consumer and a kafka streams application.
 
+Prerequisites:
+- An IDE of your choosing
+- JDK 11
+- Maven
+- Docker and Docker Compose 
+
 The workshop consists of three different modules:
 1. Kafka-producer: An application that sends/publishes data to Kafka
 2. Kafka-consumer: An application that reads/consumes data from Kafka
